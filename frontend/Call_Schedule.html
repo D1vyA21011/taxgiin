@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Schedule a Call</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #schedule-form {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        #schedule-button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="./images/call.png" height="50%" width="50%" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-6">
+                <h1>Schedule a Call</h1>
+                <div id="schedule-form">
+                    <p>Select a date and time for your call:</p>
+                    <input type="datetime-local" id="call-time">
+                    <br><br>
+                    <button id="schedule-button">Schedule Call</button>
+                </div>
+
+                <div id="confirmation" style="display: none;">
+                    <p>Call scheduled for <span id="scheduled-time"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get references to the elements
+        const scheduleButton = document.getElementById("schedule-button");
+        const callTimeInput = document.getElementById("call-time");
+        const confirmationDiv = document.getElementById("confirmation");
+        const scheduledTimeSpan = document.getElementById("scheduled-time");
+
+        // Add a click event listener to the button
+        scheduleButton.addEventListener("click", function () {
+            // Get the selected call time from the input
+            const selectedTime = callTimeInput.value;
+
+            // Update the confirmation message
+            scheduledTimeSpan.textContent = selectedTime;
+            confirmationDiv.style.display = "block";
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
