@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxgiin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        @media only screen and (max-width: 575px) {
+            .support-button p {
+                font-size: 14px;
+            }
+        }
+
+        .support-button i {
+            color: #3f43fd;
+            font-size: 1.25rem;
+        }
+
+        @media only screen and (max-width: 575px) {
+            .support-button i {
+                font-size: 1rem;
+            }
+        }
+
+        .support-button a {
+            text-transform: capitalize;
+            color: #2ecc71;
+        }
+
+        @media only screen and (max-width: 575px) {
+            .support-button a {
+                font-size: 13px;
+            }
+        }
+
+        .steps {
+            border: 1px solid #e7e7e7
+        }
+
+        .steps-header {
+            padding: .375rem;
+            border-bottom: 1px solid #e7e7e7
+        }
+
+        .steps-header .progress {
+            height: .25rem
+        }
+
+        .steps-body {
+            display: table;
+            table-layout: fixed;
+            width: 100%
+        }
+
+        .step {
+            display: table-cell;
+            position: relative;
+            padding: 1rem .75rem;
+            -webkit-transition: all 0.25s ease-in-out;
+            transition: all 0.25s ease-in-out;
+            border-right: 1px dashed #dfdfdf;
+            color: rgba(0, 0, 0, 0.65);
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none
+        }
+
+        .step:last-child {
+            border-right: 0
+        }
+
+        .step-indicator {
+            display: block;
+            position: absolute;
+            top: .75rem;
+            left: .75rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 1px solid #e7e7e7;
+            border-radius: 50%;
+            background-color: #fff;
+            font-size: .875rem;
+            line-height: 1.375rem
+        }
+
+        .has-indicator {
+            padding-right: 1.5rem;
+            padding-left: 2.375rem
+        }
+
+        .has-indicator .step-indicator {
+            top: 50%;
+            margin-top: -.75rem
+        }
+
+        .step-icon {
+            display: block;
+            width: 1.5rem;
+            height: 1.5rem;
+            margin: 0 auto;
+            margin-bottom: .75rem;
+            -webkit-transition: all 0.25s ease-in-out;
+            transition: all 0.25s ease-in-out;
+            color: #888
+        }
+
+        .step:hover {
+            color: rgba(0, 0, 0, 0.9);
+            text-decoration: none
+        }
+
+        .step:hover .step-indicator {
+            -webkit-transition: all 0.25s ease-in-out;
+            transition: all 0.25s ease-in-out;
+            border-color: transparent;
+            background-color: #f4f4f4
+        }
+
+        .step:hover .step-icon {
+            color: rgba(0, 0, 0, 0.9)
+        }
+
+        .step-active,
+        .step-active:hover {
+            color: rgba(0, 0, 0, 0.9);
+            pointer-events: none;
+            cursor: default
+        }
+
+        .step-active .step-indicator,
+        .step-active:hover .step-indicator {
+            border-color: transparent;
+            background-color: #5c77fc;
+            color: #fff
+        }
+
+        .step-active .step-icon,
+        .step-active:hover .step-icon {
+            color: #5c77fc
+        }
+
+        .step-completed .step-indicator,
+        .step-completed:hover .step-indicator {
+            border-color: transparent;
+            background-color: rgba(51, 203, 129, 0.12);
+            color: #33cb81;
+            line-height: 1.25rem
+        }
+
+        .step-completed .step-indicator .feather,
+        .step-completed:hover .step-indicator .feather {
+            width: .875rem;
+            height: .875rem
+        }
+
+        @media (max-width: 575.98px) {
+            .steps-header {
+                display: none
+            }
+
+            .steps-body,
+            .step {
+                display: block
+            }
+
+            .step {
+                border-right: 0;
+                border-bottom: 1px dashed #e7e7e7
+            }
+
+            .step:last-child {
+                border-bottom: 0
+            }
+
+            .has-indicator {
+                padding: 1rem .75rem
+            }
+
+            .has-indicator .step-indicator {
+                display: inline-block;
+                position: static;
+                margin: 0;
+                margin-right: 0.75rem
+            }
+        }
+
+        .bg-secondary {
+            background-color: #f7f7f7 !important;
+        }
+
+
+
+
+        .text-reset {
+            text-decoration: none;
+        }
+
+        p a {
+            text-decoration: none;
+            color: black;
+        }
+
+
+
+
+
+        /* call schedule start */
+
+        #schedule-form {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        #schedule-button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* call schedule end */
+
+        #faqs {
+            background-color: #191818;
+            color: white;
+        }
+
+
+
+
+        .col-center {
+            margin: 0 auto;
+            float: none !important;
+        }
+
+        .carousel {
+            margin: 50px auto;
+            padding: 0 70px;
+        }
+
+        .carousel-item {
+            color: #2a2a2a;
+            font-size: 14px;
+            text-align: center;
+            overflow: hidden;
+            min-height: 290px;
+        }
+
+        .carousel .item .img-box {
+            width: 135px;
+            height: 135px;
+            margin: 0 auto;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+        }
+
+        .carousel .img-box img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 50%;
+        }
+
+        .carousel .testimonial {
+            padding: 30px 0 10px;
+        }
+
+        .carousel .overview {
+            font-style: italic;
+        }
+
+        .carousel .overview b {
+            text-transform: uppercase;
+            color: #db584e;
+        }
+
+        .carousel .carousel-control {
+            width: 40px;
+            height: 40px;
+            margin-top: -20px;
+            top: 50%;
+            background: none;
+        }
+
+        .carousel-control i {
+            font-size: 68px;
+            line-height: 42px;
+            position: absolute;
+            display: inline-block;
+            color: rgba(0, 0, 0, 0.8);
+            text-shadow: 0 3px 3px #e6e6e6, 0 0 0 #000;
+        }
+
+        .carousel .carousel-indicators {
+            bottom: -40px;
+        }
+
+        .carousel-indicators li,
+        .carousel-indicators li.active {
+            width: 10px;
+            height: 10px;
+            margin: 1px 3px;
+            border-radius: 50%;
+        }
+
+        .carousel-indicators li {
+            background: #999;
+            border-color: transparent;
+            box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-indicators li.active {
+            background: #555;
+            box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.2);
+        }
+
+
+
+
+
+        /* login model start */
+        .popupcontainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .modal-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 35%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Styles for the modal content */
+        .modal-content {
+            background: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .modal-container {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        @media only screen and (max-width: 890px) {
+            .modal-container {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 16%;
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        /* login model end */
+
+
+
+        /* animation start */
+        .reveal {
+            position: relative;
+            transform: translateY(150px);
+            opacity: 0;
+            transition: 1s all ease;
+        }
+
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+
+
+
+        /* animation end */
+
+
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: linear-gradient(purple, rgba(255, 0, 0, 1));
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            background: linear-gradient(rgb(51, 250, 51), rgb(0, 189, 246));
+        }
+    </style>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
+
+</head>
+
+<body>
+    <!-- navbar start -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container">
+
+            <div class="">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav align-items-center">
+
+                        <a class="nav-link active" href="index1.html">Home</a>
+
+                        <div class="drop">
+                            <button class="dropbtn nav-link">Products</button>
+                            <div class="drop-content">
+                                <div class="sub-drop">
+                                    <button class="sub-dropbtn">Individual</button>
+                                    <div class="sub-drop-content">
+                                        <a href="">1) file your
+                                            return</a><br>
+                                        <a href="">2) Refund
+                                            Status</a><br>
+                                        <a href="">3) NRI Taxes</a>
+                                        <!-- <div class="sub-sub-drop">
+                                            <button class="sub-sub-dropbtn">Sub Dropdown 2</button>
+                                            <div class="sub-sub-drop-content">
+                                                <a href="#">Sub Sub Item 1</a>
+                                                <a href="#">Sub Sub Item 2</a>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <div class="sub-drop">
+                                    <button class="sub-dropbtn">Business</button>
+                                    <div class="sub-drop-content">
+
+                                        <div class="sub-sub-drop">
+                                            <button class="sub-sub-dropbtn">1) GST</button>
+                                            <div class="sub-sub-drop-content">
+                                                <a href="./pages/products/Gst/Gst_Reg.html">1) GST Registration</a> <br>
+
+                                                <a href="./pages/products/Gst/Gst_filling.html">3) GST Filing</a> <br>
+
+                                            </div>
+                                        </div>
+                                        <div class="sub-sub-drop">
+                                            <button class="sub-sub-dropbtn">2) Compliances</button>
+                                            <div class="sub-sub-drop-content">
+                                                <a href="./pages/products/Complinces/Digital_signature.html">1)
+                                                    Digital Signature</a><br>
+                                                <a href="./pages/products/Complinces/Food_Licence.html">2) FSSA/FOOD
+                                                    Licenses</a><br>
+                                                <a href="./pages/products/Complinces/Trademark_Reg.html">3)
+                                                    Trademark Reg</a><br>
+                                                <a href="./pages/products/Complinces/Farmer_Reg.html">4) FPO /
+                                                    Farmer Reg</a><br>
+                                                <a href="./pages/products/Complinces/Business_pan.html">5) Business
+                                                    PAN</a><br>
+                                                <a href="./pages/products/Complinces/Tan_reg.html">6) TAN
+                                                    Reginstration</a><br>
+                                            </div>
+                                        </div>
+                                        <div class="sub-sub-drop">
+                                            <button class="sub-sub-dropbtn">3) Compnay Reg</button>
+                                            <div class="sub-sub-drop-content">
+                                                <a
+                                                    href="./pages/products/Company Registration/One_person_company_registration.html">1)
+                                                    One Person Company Registration</a><br>
+                                                <a href="./pages/products/Company Registration/LimitedPartnership.html">2)
+                                                    Limited Liability</a><br>
+                                                <a href="./pages/products/Company Registration/Sole.html">3) Sole
+                                                    Propriteorship</a><br>
+                                                <a href="./pages/products/Company Registration/Shopact.html">4) Shop
+                                                    Act</a><br>
+                                                <a href="./pages/products/Company Registration/Udyam_reg.html">5)
+                                                    Udyam Reg</a><br>
+                                                <a href="./pages/products/Company Registration/Partnersheep.html">6)
+                                                    Partnership Deed</a><br>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="nav-link" href="./blogs.html">Blog</a>
+                        <a class="nav-link" href="./about.html">About Us</a>
+                        <a class="nav-link" href="./contactus.html">Contact Us</a>
+                        <a class="nav-link" href="./CA_Login.html"></a>
+                        <div id="profile" class="dropdown">
+                            <button class="btn nav-link dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown">
+                                Profile
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a id="profiles" class="dropdown-item" href="./pages/auth/userProfile.html">Profile</a></li>
+                                <li><a id="logout" onclick="handleLogout()" class="dropdown-item" href="index1.html">Logout</a></li>
+                            </ul>
+                        </div>
+                        <!-- <a class="nav-link" id="profile" href="./pages/auth/userProfile.html">Profile</a> -->
+                        <!-- <a class="nav-link" id="logout" onclick="handleLogout()" href="index1.html">Logout</a> -->
+
+
+                        <button id="login" style="display: block;" class="btn btn-primary"><a class="text-light mx-auto"
+                                href="./login.html">Login</a></button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <a class="navbar-brand" href="#">
+                    <img src="./data/Arjun logo Taxgiin.png" class='img-fluid' style="height: 70px; width: 250px;"
+                        alt="">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- navbar end -->
+
+    <!-- home content start -->
+
+    <!-- service start -->
+
+    <div class="container my-5">
+        <div class="row">
+            <h1 class="text-center mb-3">What we Offer</h1>
+            <div class="col-md-4">
+                <a style="text-decoration: none;" href="./pages/itr/ITR-Filing-process-roadmap.html">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h3 class="animate__animated animate__fadeInDown ">Income Tax Return</h3>
+                        </div>
+                        <div class="card-body">
+                            <img class="img-fluid" src="./images/showcase/itr.png" alt="">
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3 class="animate__animated animate__fadeInDown">GST</h3>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-fluid" src="./images/showcase/GST.png" alt="">
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3 class="animate__animated animate__fadeInDown">Audit Service</h3>
+                    </div>
+                    <div class="card-body">
+                        <img class="img-fluid" src="./images/showcase/adit.png" alt="">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- service end -->
+
+    <div class="container my-5">
+        <div class="row">
+            <!-- {/* steps start */} -->
+            <div class="container reveal mb-sm-4">
+                <div class="head my-5">
+                    <h1>5 Easy steps to e-file your <span><strong class='text-info'>Income Tax
+                                Return</strong></span> </h1>
+                </div>
+                <div class="steps ">
+
+                    <div class="steps-body">
+                        <div class="step step-completed"><span class="step-indicator"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg></span><span class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg></span>Get Started <br />
+                            <p style="font-size: 13px;">Visit the TaxGiin ITR Portal to begin your seamless journey
+                                toward filing your Income Tax
+                                Returns. Click on 'Get Started' to access our user-friendly platform.</p>
+                        </div>
+                        <div class="step step-completed"><span class="step-indicator">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg></span>
+                            <span class="step-icon">
+                                <i class="bi bi-ui-checks"></i>
+                            </span>Enter Personal Details<br />
+                            <p style="font-size: 13px;">Provide your essential personal details, such as your name, PAN
+                                number, and contact information. Our secure platform ensures the confidentiality of your
+                                information.</p>
+                        </div>
+                        <div class="step step-active"><span class="step-icon"><i
+                                    class="bi bi-currency-rupee"></i></span>Declare Your Income <br />
+                            <p style="font-size: 13px;">Share details of your income from various sources, including
+                                salary, business, investments, and more. Our guided process makes it easy to declare all
+                                relevant income accurately.</p>
+                        </div>
+                        <div class="step"><span class="step-icon"><i class=" bi bi-heart-fill"></i></span>Claim
+                            Deduction
+                            and Exemptions <br />
+                            <p style="font-size: 13px;">Maximize your savings by claiming eligible deductions and
+                                exemptions. Our platform helps you identify and apply for the deductions you qualify
+                                for, ensuring you keep more of your hard-earned money</p>
+                        </div>
+                        <div class="step"><span class="step-icon"><i class="bi bi-file-check-fill"></i></span>Review and
+                            Submit
+                            <br />
+                            <p style="font-size: 13px;">Thoroughly review your entered information to ensure accuracy.
+                                Once satisfied, hit
+                                'Submit' to file your Income Tax Returns effortlessly. Our experts will handle the rest,
+                                ensuring compliance with the latest tax regulations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- {/* steps end */} -->
+
+
+
+    <!-- {/* FAQ SECTION START */} -->
+    <section id="faqs my-3">
+        <div class="container faqs p-4">
+            <h1 class="text-center my-5">Frequently Asked
+                Question's</h1>
+            <p style="font-size: 25px;" class="">* Individual Income Tax Returns (ITR) and Finance FAQs:</p>
+
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item fade-left">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <p><strong>What is an ITR (Income Tax Return)?</strong></p>
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p>An ITR is a form used by individuals to report their income, deductions, and tax
+                                liabilities to
+                                the government.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <p><strong>Who needs to file an ITR?</strong></p>
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p>Anyone with taxable income, including salary, investments, or business income,
+                                should
+                                file an
+                                ITR.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <p><strong>When is the deadline for filing ITR in India?</strong></p>
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p>The deadline typically falls on July 31st for individuals, but it may vary based
+                                on
+                                the
+                                assessment year.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <p><strong>What documents are needed to file ITR?</strong></p>
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p>Commonly required documents include PAN card, Aadhar card, Form 16, bank
+                                statements,
+                                and
+                                investment details.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            <p><strong>How can I file my ITR?</strong></p>
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p>You can file ITR online through the Income Tax Department's e-filing portal or by
+                                using tax
+                                filing software.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            <p><strong>What deductions and exemptions are available for individuals?</strong>
+                            </p>
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p>Common deductions include HRA, Section 80C, Section 80D, and more.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                            <p><strong>What are advance tax payments?</strong></p>
+                        </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p>Advance tax is paid periodically throughout the year by individuals with
+                                substantial
+                                tax
+                                liabilities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- {/* business related faqs */} -->
+            <p style="font-size: 25px;" class=" my-5">* Business-Related FAQs:</p>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button collapsed type=" button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseeight" aria-expanded="true" aria-controls="collapseeight">
+                            <p><strong>What is GST (Goods and Services Tax)?</strong></p>
+
+                        </button>
+                    </h2>
+                    <div id="collapseeight" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p>GST is an indirect tax levied on the supply of goods and services in India.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapsenine" aria-expanded="false" aria-controls="collapsenine">
+                            <p><strong>When should a business file GST returns?</strong></p>
+                        </button>
+                    </h2>
+                    <div id="collapsenine" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p>GST returns are typically filed monthly, quarterly, or annually, depending on the
+                                business's
+                                turnover.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseten" aria-expanded="false" aria-controls="collapseten">
+                            <p><strong>What is an audit service for businesses?</strong></p>
+                        </button>
+                    </h2>
+                    <div id="collapseten" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p>An audit service involves a detailed examination of a business's financial
+                                records to
+                                ensure
+                                accuracy and compliance with laws and regulations.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseeleven" aria-expanded="false" aria-controls="collapseeleven">
+                            <p><strong>Why is business ITR important?</strong></p>
+                        </button>
+                    </h2>
+                    <div id="collapseeleven" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p> Business ITR is essential to report income, expenses, and taxes accurately and
+                                to
+                                comply with
+                                tax laws.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapsetwelve" aria-expanded="false" aria-controls="collapsetwelve">
+                            <p><strong>What is the difference between business ITR and individual ITR?</strong>
+                            </p>
+                        </button>
+                    </h2>
+                    <div id="collapsetwelve" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p>Business ITR includes details of business income, expenses, and deductions, while
+                                individual ITR
+                                focuses on personal income sources.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapsethirteen" aria-expanded="false" aria-controls="collapsethirteen">
+                            <p><strong>How can businesses optimize their tax liabilities?</strong></p>
+                        </button>
+                    </h2>
+                    <div id="collapsethirteen" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p>Businesses can optimize taxes through proper record-keeping, claiming eligible
+                                deductions, and
+                                strategic tax planning.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                            <p><strong>What is the process for registering a business for GST?</strong></p>
+                        </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p>The process involves submitting an application through the GST portal, followed
+                                by
+                                verification
+                                and issuance of a GSTIN.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- {/* FAQ SECTION END */} -->
+
+    </div>
+    </div>
+    <!-- home content end -->
+
+    <!-- schedule call start -->
+    <div class="container reveal  my-5">
+        <div class="row">
+            <h1 class="text-center my-5">Schedule a Call</h1>
+            <div class="col-md-6">
+                <img src="./images/call.png" height="50%" width="50%" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-6 p-5 text-center"
+                style="border: 1px dashed red; box-shadow: 5px 10px 8px 10px #adacac;">
+                <div id="schedule-form" style="font-size: 22px;">
+                    <p>Select a date and time for your call:</p>
+                    <input type="datetime-local" id="call-time">
+                    <br><br>
+                    <button id="schedule-button">Schedule Call</button>
+                </div>
+
+                <div id="confirmation" style="display: none;">
+                    <p>Call scheduled for <span id="scheduled-time"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- schedule call end -->
+
+
+    <!-- testimonial start -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-8 col-center m-auto">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Carousel -->
+                    <div class="carousel-inner">
+                        <div class="item carousel-item active">
+                            <div class="img-box"><img class="img-fluid" src="./images/reviews/img1.jpeg" alt=""></div>
+                            <p class="testimonial">Taxgiin has made core GST Return simple and easy for us.</p>
+                            <p class="overview"><b>Gautam Mhaske</b> </p>
+                        </div>
+                        <div class="item carousel-item">
+                            <div class="img-box"><img class="img-fluid" src="./images/reviews/img2.jpeg" alt=""></div>
+                            <p class="testimonial">My executive could learn it so quickly and we implemented literally
+                                in a couple of days.I am impressed with the time saving features.</p>
+                            <p class="overview"><b>Ganesh Dhanwai</b></p>
+                        </div>
+                        <div class="item carousel-item">
+                            <div class="img-box"><img class="img-fluid" src="./images/reviews/img3.jpeg" alt=""></div>
+                            <p class="testimonial">I have been using Taxgiin for ITR Finling for last 2 Months. Very
+                                effective and least time consuming.</p>
+                            <p class="overview"><b>Sarjerao Kumar</b></p>
+                        </div>
+                    </div>
+                    <!-- Carousel Controls -->
+                    <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- testimonial end -->
+
+
+    <!-- login model start -->
+    <div class="container popupcontainer">
+        <div class="row">
+            <div class="loginmodel">
+                <div class=" modal-container" id="loginModal">
+                    <div class="modal-content">
+                        <div class="card p-5 ">
+
+                            <div class="card-headers">
+                                <h3 class="title">Let's get you an account first</h3>
+                                <p class="sub-title text-secondary">Please sign up or login to continue.</p>
+                            </div>
+
+                            <div class="card-body">
+
+                                <div class="d-flex gap-3">
+                                    <button class="form-control btn btn-success "> <a
+                                            style="text-decoration: none; color: white; " href="./register.html">
+                                            Register</a></button>
+                                    <button id="closeModal" class=" btn btn-outline-danger form-control">Close</button>
+                                </div>
+                                <p class="">Already have an Account ? <a style="color:rgb(0, 91, 91);"
+                                        href="./login.html">Login</a> </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- login model end -->
+
+    <!-- chat start -->
+    <div class="chat-icon" id="chat-icon">
+        <span>&#x1F4AC;</span> <!-- Chat Icon (💬) -->
+    </div>
+    <div class="chat-modal" id="chat-modal">
+        <div id="chat-container">
+            <div class="chat-header">
+                <span>Chat</span>
+                <button class="bton" id="close-chat">&times;</button>
+            </div>
+            <div id="chat-messages"></div>
+            <div id="suggestions"></div>
+            <div id="user-input">
+                <input type="text" id="input-box" placeholder="Type your message...">
+                <button class="bton" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- chat end -->
+
+
+
+    <!-- footer start -->
+
+    <footer class=" text-lg-start bg-light py-5 ">
+        <section class="d-flex justify-content-center justify-content-lg-between border-bottom">
+        </section>
+        <section class="">
+            <div class="container  text-md-start">
+                <div class="row">
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto">
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <img src="./data/Arjun logo Taxgiin.png" class='img-fluid mt-5 pl-0' alt="">
+                        </h6>
+                    </div>
+
+
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto">
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Useful links
+                        </h6>
+                        <p>
+                            <a href="#" class="text-reset">Home</a>
+                        </p>
+
+                        <p>
+                            <a href="./blogs.html" class="text-reset">Blogs</a>
+                        </p>
+                        <p>
+                            <a href="./privacy_policy.html" class="text-reset">Privacy Policy</a>
+                        </p>
+                        <p>
+                            <a href="./terms_and_conditions.html" class="text-reset">Terms and Conditions</a>
+                        </p>
+                        <p>
+                            <a href="./return_and_refund.html" class="text-reset">Return and Refund</a>
+                        </p>
+
+                    </div>
+
+
+
+
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0">
+                        <h6 class="text-uppercase fw-bold">Contact</h6>
+                        <p><i class="bi bi-geo-alt-fill me-3"></i>Chh. Sambhajinagar, Maharashtra.</p>
+                        <p class='mx-4'>Pin Code - 431001</p>
+                        <p>
+                            <a href='mailto:taxgiin@gmail.com'>
+                                <i class="bi bi-envelope me-3"></i>
+                                taxgiin@gmail.com
+                            </a>
+                        </p>
+                        <p><a href='tel:+ 91 879955902'><i class="bi bi-telephone me-3"></i> + 91 8799955902</a></p>
+                        <p><a href='tel:tel:+ 91 7620893156'><i class="bi bi-telephone me-3"></i> + 91
+                                7620893156</a></p>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <div class="text-center">
+            © 2023 Copyright:
+            <a class="text-reset fw-bold" href="https://taxgiin.com/taxgiin.com">taxgiin.com</a>
+            <hr />
+        </div>
+    </footer>
+
+    <!-- footer end -->
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="./js/index.js"></script>
+
+</body>
+
+</html>

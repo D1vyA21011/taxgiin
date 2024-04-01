@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+
+
+        .container .row .col-lg-4 {
+            display: flex;
+            justify-content: center
+        }
+
+        .card {
+            position: relative;
+            padding: 0;
+            margin: 0 !important;
+            border-radius: 20px;
+            overflow: hidden;
+            max-width: 280px;
+            max-height: 340px;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2)
+        }
+
+        .card .card-image {
+            width: 100%;
+            max-height: 340px
+        }
+
+
+        .card .card-image img {
+            width: 100%;
+            max-height: 340px;
+            object-fit: cover
+        }
+
+        .card .card-content {
+            position: absolute;
+            bottom: -180px;
+            color: #000000;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            min-height: 140px;
+            width: 100%;
+            transition: bottom .4s ease-in;
+            box-shadow: 0 -10px 10px rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.2)
+        }
+
+        .card:hover .card-content {
+            bottom: 0px
+        }
+
+        .card:hover .card-content h4,
+        .card:hover .card-content h5 {
+            transform: translateY(10px);
+            opacity: 1
+        }
+
+        .card .card-content h4,
+        .card .card-content h5 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-align: center;
+            transition: 0.8s;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(-40px);
+            transition-delay: 0.2s
+        }
+
+        .card .card-content h5 {
+            transition: 0.5s;
+            font-weight: 200;
+            font-size: 0.8rem;
+            letter-spacing: 2px
+        }
+
+        .card .card-content .social-icons {
+            list-style: none;
+            padding: 0
+        }
+
+        .card .card-content .social-icons li {
+            margin: 10px;
+            transition: 0.5s;
+            transition-delay: calc(0.15s * var(--i));
+            transform: translateY(50px)
+        }
+
+        .card:hover .card-content .social-icons li {
+            transform: translateY(20px)
+        }
+
+        .card .card-content .social-icons li a {
+            color: #2c2b2b
+        }
+
+        .card .card-content .social-icons li a span {
+            font-size: 1.3rem
+        }
+
+        @media(max-width: 991.5px) {
+            .container {
+                margin-top: 20px
+            }
+
+            .container .row .col-lg-4 {
+                margin: 20px 0px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- navbar start -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container">
+
+            <div class="">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav align-items-center">
+                        <a class="nav-link active" href="./index1.html">Home</a>
+
+                        <div class="drop">
+                            <button class="dropbtn nav-link">Products</button>
+                            <div class="drop-content">
+                                <div class="sub-drop">
+                                    <button class="sub-dropbtn">Individual</button>
+                                    <div class="sub-drop-content">
+                                        <a>1) file your return</a> <br>
+                                        <a>2) Refund Status</a> <br>
+                                        <a>3) NRI Taxes</a> <br>
+                                        <!-- <div class="sub-sub-drop">
+                                            <button class="sub-sub-dropbtn">Sub Dropdown 2</button>
+                                            <div class="sub-sub-drop-content">
+                                                <a href="#">Sub Sub Item 1</a>
+                                                <a href="#">Sub Sub Item 2</a>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <div class="sub-drop">
+                                    <button class="sub-dropbtn">Business</button>
+                                    <div class="sub-drop-content">
+
+                                        <div class="sub-sub-drop">
+                                            <button class="sub-sub-dropbtn">1) GST</button>
+                                            <div class="sub-sub-drop-content">
+                                                <a href="./pages/products/Gst/Gst_Reg.html">1) GST Registration</a>
+                                                <br>
+
+                                                <a href="./pages/products/Gst/Gst_filling.html">3) GST Filing</a>
+                                                <br>
+
+                                            </div>
+                                        </div>
+                                        <div class="sub-sub-drop">
+                                            <button class="sub-sub-dropbtn">2) Compliances</button>
+                                            <div class="sub-sub-drop-content">
+                                                <a href="./pages/products/Complinces/Digital_signature.html">1)
+                                                    Digital Signature</a><br>
+                                                <a href="./pages/products/Complinces/Food_Licence.html">2) FSSA/FOOD
+                                                    Licenses</a><br>
+                                                <a href="./pages/products/Complinces/Trademark_Reg.html">3)
+                                                    Trademark Reg</a><br>
+                                                <a href="./pages/products/Complinces/Farmer_Reg.html">4) FPO /
+                                                    Farmer Reg</a><br>
+                                                <a href="./pages/products/Complinces/Business_pan.html">5) Business
+                                                    PAN</a><br>
+                                                <a href="./pages/products/Complinces/Tan_reg.html">6) TAN
+                                                    Reginstration</a><br>
+                                            </div>
+                                        </div>
+                                        <div class="sub-sub-drop">
+                                            <button class="sub-sub-dropbtn">3) Compnay Reg</button>
+                                            <div class="sub-sub-drop-content">
+                                                <a
+                                                    href="./pages/products/Company Registration/One_person_company_registration.html">1)
+                                                    One Person Company Registration</a><br>
+                                                <a href="./pages/products/Company Registration/LimitedPartnership.html">2)
+                                                    Limited Liability</a><br>
+                                                <a href="./pages/products/Company Registration/Sole.html">3) Sole
+                                                    Propriteorship</a><br>
+                                                <a href="./pages/products/Company Registration/Shopact.html">4) Shop
+                                                    Act</a><br>
+                                                <a href="./pages/products/Company Registration/Udyam_reg.html">5)
+                                                    Udyam Reg</a><br>
+                                                <a href="./pages/products/Company Registration/Partnersheep.html">6)
+                                                    Partnership Deed</a><br>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="nav-link" href="./blogs.html">Blog</a>
+                        <a class="nav-link" href="about.html">About Us</a>
+                        <a class="nav-link" href="./contactus.html">Contact Us</a>
+                        <div id="profile" class="dropdown">
+                            <button class="btn nav-link dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown">
+                                Profile
+                            </button>
+                            <ul class="dropdown-menu">
+
+                                <li><a id="profiles" class="dropdown-item"
+                                        href="./pages/auth/userProfile.html">Profile</a></li>
+                                <li><a id="logout" onclick="handleLogout()" class="dropdown-item"
+                                        href="index1.html">Logout</a></li>
+                            </ul>
+                        </div>
+                        <button id="login" class="btn btn-primary"><a class="text-light mx-auto"
+                                href="./login.html">Login</a></button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <a class="navbar-brand" href="#">
+                    <img src="./data/Arjun logo Taxgiin.png" class='img-fluid' style="height: 70px; width: 250px;"
+                        alt="">
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar end -->
+    <!-- {/* Our team start*/} -->
+    <div class="container">
+        <h1 class='text-center mb-5'>About us</h1>
+
+        <div class="row my-5">
+            <div class="col-lg-6">
+                <img src="./images/about.png" class='img-fluid' alt="" />
+            </div>
+            <div class="col-lg-6 ">
+                <div class="info">
+                    <div class="aboutinfo">
+                        <h2 class="head">Who we are</h2>
+                        <p class="desc">At TaxGiin, we're more than just a financial service provider; we're your
+                            dedicated team of experts
+                            committed to simplifying your financial journey. Our journey began with the vision of making
+                            finance
+                            and taxation accessible, convenient, and stress-free for individuals and businesses across
+                            India.</p>
+
+                        <h2 class="head mt-3">What we do</h2>
+                        <p class="desc ">We specialize in providing a comprehensive suite of online CA (Chartered
+                            Accountant) services.
+                            Whether you're an individual navigating personal finance, a startup looking for guidance, or
+                            a wellestablished business aiming for financial efficiency, TaxGiin is here to assist you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row my-5">
+
+                <div class=" col-md-6">
+                    <h2 class="head reveal">Why choose Taxgiin ?</h2>
+                    <div class="animate__fadeOut animate__animated">
+                        <h4>Our commitment to excellence, innovation, and client satisfaction sets us apart:
+                        </h4>
+                        <p>Expertise: Our team of seasoned CAs
+                            and financial professionals ensures that you receive
+                            top-notch guidance and support.
+                        </p>
+                        <p>Convenience: Say goodbye to the
+                            hassle of paperwork and in-person appointments. With
+                            TaxGiin, everything is just a click away.
+                        </p>
+                        <p>Accessibility: We serve clients from
+                            every corner of India, ensuring that expert financial
+                            advice is available to all.
+                        </p>
+                        <p>Security: Your financial data is in
+                            safe hands. We prioritize security and confidentiality
+                        </p>
+                        <p>Innovation: We leverage cutting-edge
+                            technology to simplify your financial management,
+                            offering you a user-friendly experience.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="./images/why.png" class="img-fluid" alt="">
+                </div>
+            </div>
+
+            <div class="my-5">
+                <h4 class="reveal">Mission Statement:</h4>
+                <h6>Empowering Financial Wellness
+                </h6>
+                <p>We strive to empower individuals and businesses with the knowledge and tools they need to
+                    navigate the complexities of taxation and finance. Through innovative technology and a
+                    client-centric
+                    approach, we aim to make financial well-being a reality for everyone.</p>
+
+
+                <h4 class="reveal mt-5">Vision Statement:</h4>
+                <h6>Transforming the Financial Landscape</h6>
+                <p>We envision a future where financial management is seamless, transparent, and inclusive. By
+                    leveraging cutting-edge technology and a team of dedicated experts, we aspire to set new standards
+                    in online CA services. Our vision is to be the go-to platform for individuals and businesses seeking
+                    reliable and efficient financial solutions.</p>
+
+                <p>Join us on your financial journey and experience the ease of managing your finances like never
+                    before. At TaxGiin, we are driven by your success, and we're here to empower you with the
+                    knowledge and support you need to achieve your financial goals.</p>
+            </div>
+            <div class="container my-5">
+                <h2 class="text-center my-5">Our Team</h2>
+                <div class="row mx-auto">
+                    <div class="col-lg-4 offset-lg-2">
+                        <div class="card p-0">
+                            <div class="card-image"> <img src="./images/about/akshay.jpeg" alt=""> </div>
+                            <div class="card-content d-flex flex-column align-items-center">
+                                <h4 class="pt-2">Akshay Deshmukh</h4>
+                                <h5>Founder</h5>
+                                <ul class="social-icons d-flex justify-content-center">
+                                    <li style="--i:1"> <a
+                                            href="https://www.instagram.com/akshay_deshmukh001/?igshid=MzMyNGUyNmU2YQ%3D%3D">
+                                            <i class="bi bi-instagram"></i> </a> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 ">
+                        <div class="card p-0">
+                            <div class="card-image arjun"> <img class="img-fluid" src="./images/about/arjun.jpeg"
+                                    alt=""> </div>
+                            <div class="card-content d-flex flex-column align-items-center">
+                                <h4 class="pt-2">Arjun Khot</h4>
+                                <h5>Co-Founder</h5>
+                                <ul class="social-icons d-flex justify-content-center">
+                                    <li style="--i:1"> <a
+                                            href="https://www.instagram.com/rkakhot_5555/?igshid=MzMyNGUyNmU2YQ%3D%3D">
+                                            <i class="bi bi-instagram"></i> </a> </li>
+                                    <li style="--i:2"> <a
+                                            href="https://www.linkedin.com/in/arjun-khot-959256263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+                                            <i class="bi bi-linkedin"></i> </a> </li>
+                                    <li style="--i:3"> <a
+                                            href="https://twitter.com/rkakhot_5555?t=K1YK2kfsW_CcvLLfx2H6vA&s=08"> <i
+                                                class="bi bi-twitter-x"></i> </a> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- {/* Our team end*/} -->
+
+    <!-- {/* general info start */} -->
+
+
+    <!-- {/* general info end */} -->
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+    <script>
+        // animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        AOS.init();
+    </script>
+    <script src="./js/protected.js"></script>
+</body>
+
+</html>
